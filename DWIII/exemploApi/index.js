@@ -1,80 +1,52 @@
 const express = require('express')
 const app = express()
 const port = 3000
-//vetor para salvar os nomes
-let nomes = [];
 
 app.use(express.json())
 
+//vetor para salvar os nomes
+let nomes = [];
+
 app.get('/', (req, res) => {
+  //converte o json recebido e mostra os dados
   res.json(nomes)
-
 })
 
-app.post('/',(req,res) => {
-    console.log(req.body)
-    //ao enviar os dados, serão armazenados na variável nome e adicionados ao vetor nome
-    let nome = req.body.nome
-    nomes.push(nome)
-    res.send(`Nome:${req.body.nome}`)
+app.post('/', (req, res) => {
+  //ao enviar os dados, serão armazenados na variavel nome, e depois adicionados ao vetor
+  let nome = req.body.nome
+  nomes.push(nome)
+  res.send(`Nome: ${req.body.nome}`)
 })
 
-app.post('/exercicio1', (req, res) =>{
-    const tipo = req.body.tipo;
-     
-    const temperatura = req.body.temperatura;
-     
-    const resultado = Converte(tipo, temperatura);
-     
-    res.send(`Temperatura convertida: ${resultado}`);
-   
-  })
-   
-  function Converte(tipo, temperatura){
-    let resultado;
-   
-    switch(tipo){
-   
-      case 'C':
-      case 'c':
-            resultado = (temperatura * 9/5) + 32;
-            break;
-   
-      case 'c':
-            resultado = (temperatura * 9/5) + 32;
-            break;
-   
-      case 'F':
-      case 'f':
-            resultado = (temperatura - 32) * 5/9;
-            break;
-   
-      default:
-            resultado = 'Tipo inválido. Por favor insira um valor válido! ';
-   
-      }
-     
-      return resultado;
-   
+app.post('/exercicio', (req, res) => {
+  let newTemp = Converter(req.body.type, req.body.temperature)
+  if(newTemp == 0){
+    res.send('Invalid Type')
+    return
   }
+  let newType = req.body.type.toUpperCase() == 'C'?'F':'C'
+  res.send(`Temperature in ${newType} = ${newTemp}`)
+});
 
-app.post('/exercicio2', (req,res) => {
-    let notas = [];
-    const nota =req.body.nota;
-    const media = Media(notas, alunos);
-    res.send(`Média: ${media}`);
+function Converter(type, temperature) {
+  let newTemp
+  switch (type.toUpperCase()) {
+    case "C":
+      newTemp = (9 * temperature / 5) + 32
+      break;
 
-    function Media(notas,alunos){
-        
-    }
-    
-})
-app.get('/exercicio2', (req, res) => {
-    res.json(notas)
-  
-  })
+    case "F":
+      newTemp = 5 * (temperature - 32) / 9
+      break;
+
+    default:
+      newTemp = 0;      
+      break;
+  }
+  return newTemp
+}
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
-

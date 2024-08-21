@@ -1,7 +1,7 @@
 {
   "name": "exemploapi",
   "version": "1.0.0",
-  "description": "primeiro microserviço",
+  "description": "primeiro microsservico",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,7 +10,7 @@
     "microsservico",
     "node"
   ],
-  "author": "julinha",
+  "author": "Janaina",
   "license": "ISC",
   "dependencies": {
     "express": "^4.19.2",
