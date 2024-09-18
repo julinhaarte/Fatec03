@@ -1,0 +1,14 @@
+{
+  "name": "aula1709",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node .\\index.js"
+  },
+  "author": "julinha",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "nodemon": "^3.1.5"
+  }
+}
