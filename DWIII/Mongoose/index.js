@@ -1,9 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-const mongoose = require('mongoose');
 
+const mongoose = require('mongoose');
 let url = 'mongodb://localhost:27017/DWIII'
+
 let mongodb = process.env.MONGODB_URI || url;
 mongoose.connect(mongodb);
 mongoose.Promise= global.Promise;
