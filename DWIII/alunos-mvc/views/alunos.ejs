@@ -1,0 +1,8 @@
+<%- include('layout') %>
+
+<h1>Lista de Alunos</h1>
+<ul>
+    <% alunos.forEach(aluno => { %>
+        <li><%= aluno.nome %> - <%= aluno.idade %> anos</li>
+    <% }) %>
+</ul>
