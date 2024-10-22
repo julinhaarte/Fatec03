@@ -1,6 +1,6 @@
 import {MongoClient} from 'mongodb'
 import {config} from 'dotenv'
-config()
+config()//carrega as variáveis do .env
 
 const {MONGODB_URI, MONGODB_DB} = process.env
 
@@ -13,4 +13,4 @@ async function connectToDatabase(){
     }
     return client
 }
-export {connectToDatabase}
+export {connectToDatabase, MONGODB_DB}
