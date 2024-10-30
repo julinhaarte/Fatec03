@@ -17,8 +17,11 @@ public class Cad_Clientes extends javax.swing.JFrame {
     public Cad_Clientes() {
         initComponents();
     }
-    /*
+    
+    
+    
     String operacaoAtivaGlobal = "Nenhum";
+
     public Cad_Clientes (String operacaoAtiva){
         initComponents();
         operacaoAtivaGlobal = operacaoAtiva;
@@ -112,7 +115,7 @@ public class Cad_Clientes extends javax.swing.JFrame {
         }        
 
    }
-    } */
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -434,6 +437,8 @@ public class Cad_Clientes extends javax.swing.JFrame {
         // TODO add your handling code here:
         Clientes dadosCliente = new Clientes();
         
+        String operacao = "Incluir";
+        if ((operacaoAtivaGlobal).equals(operacao)){
         dadosCliente.setIdCli(Integer.parseInt(jTextField1.getText()));
         dadosCliente.setNomeCli(jTextField2.getText());
         dadosCliente.setEndeCli(jTextField3.getText());
@@ -448,7 +453,10 @@ public class Cad_Clientes extends javax.swing.JFrame {
         dadosCliente.setDataNasc(jTextField12.getText());
         dadosCliente.setCnpjCli(jTextField13.getText());
         
+        ConnectDAO objcon = new ConnectDAO();
         
+        objcon.insereRegistroJFBD("CLIENTES", dadosCliente.dadosSQLValues());
+        }
         String dadosClientes;
         dadosClientes = "'"+
                 jTextField1.getText()+","+
@@ -468,7 +476,7 @@ public class Cad_Clientes extends javax.swing.JFrame {
         
         ConnectDAO objcon = new ConnectDAO();
         
-        objcon.insereRegistroJFBD("CLIENTES",dadosCliente.dadosSQLInsert());
+        objcon.insereRegistroJFBD("CLIENTES",dadosCliente.dadosSQLValues());
         
         jTextField1.setText("");
         jTextField2.setText("");
