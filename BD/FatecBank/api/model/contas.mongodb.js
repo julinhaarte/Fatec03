@@ -12,7 +12,7 @@ const contas = [{
         "data" : ISODate('2024-08-16T10:00:00Z')
     },
     {
-        "tipo" : "débito",
+        "tipo" : "debito",
         "valor" : 200.00,
         "descricao" : "Pagamento CPFL",
         "data" : ISODate('2024-08-18T10:00:00Z')
@@ -32,7 +32,7 @@ const contas = [{
         "data" : ISODate('2024-08-12T10:00:00Z')
     },
     {
-        "tipo" : "débito",
+        "tipo" : "debito",
         "valor" : 120.00,
         "descricao" : "Pagamento SAAE",
         "data" : ISODate('2024-08-15T10:00:00Z')
