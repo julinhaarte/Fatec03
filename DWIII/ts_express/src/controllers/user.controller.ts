@@ -4,7 +4,7 @@ import { IUser } from  "./user.interface"
  export const getUser = (_request:Request, response:Response) => {
     const user: IUser = {
         id: 1,
-        name: "João",
+        name: "João Pedro",
         age: 18
     }
     response.json(user);
